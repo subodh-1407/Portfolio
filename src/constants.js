@@ -192,7 +192,7 @@ export const SkillsInfo = [
       id: 1,
       img: vpsLogo,
       school: "Brij Bhushan Lal Public School, Bareilly",
-      date: "Apr 2018 - March 2019 (91.8%)",
+      date: "Apr 2018 - March 2019",
       grade: "91.8%",
       desc: "I completed my class 12 education from Brij Bhushan Lal Public School, Bareilly, under the CBSE board, where I studied Physics, Chemistry, and Mathematics (PCM) with Computer Science.",
       degree: "CBSE(XII) - PCM with Computer Science",
