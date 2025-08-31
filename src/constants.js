@@ -114,8 +114,26 @@ export const SkillsInfo = [
 ];
 
   export const experiences = [
-    {
+
+        {
       id: 0,
+      img: newtonschoolLogo,
+      role: "Backend Developer (MERN Stack)",
+      company: "ISOURSE Technologies Pvt Ltd",
+      date: "July 2025 - Present",
+      desc: "Building scalable backend services using Node.js and MS SQL for product-based solutions serving international clients, ensuring performance, reliability, and security across deployments. Collaborating with cross-functional teams to design RESTful APIs, integrate databases, and optimize server-side logic tailored to diverse business needs.",
+      skills: [
+        "Javascript",
+        "Node JS",
+        "Express JS",
+        "MongoDb",
+        "MS SQL",
+        "RESTful APIs",
+        "Postman",
+      ],
+    },
+    {
+      id: 1,
       img: webverseLogo,
       role: "Fullstack Intern",
       company: "CODEistic Technologies",
@@ -150,23 +168,7 @@ export const SkillsInfo = [
     //     "SQL",
     //   ],
     // },
-    {
-      id: 1,
-      img: newtonschoolLogo,
-      role: "Frontend Intern",
-      company: "Newton School",
-      date: "March 2024 - May 2022",
-      desc: "Worked as a Frontend Developer Intern, designing and implementing scalable UI components and responsive websites using HTML, CSS, JavaScript, Bootstrap, and Material UI. Collaborated with the design team to translate wireframes and prototypes from Figma into interactive, user-friendly web pages.",
-      skills: [
-        "HTML",
-        "CSS",
-        "Javascript",
-        "ReactJS",
-        "Redux",
-        "Bootstrap",
-        "Figma",
-      ],
-    },
+
   ];
   
   export const education = [
@@ -192,7 +194,7 @@ export const SkillsInfo = [
       id: 1,
       img: vpsLogo,
       school: "Brij Bhushan Lal Public School, Bareilly",
-      date: "Apr 2018 - March 2019",
+      date: "Apr 2018 - March 2019 (91.8%)",
       grade: "91.8%",
       desc: "I completed my class 12 education from Brij Bhushan Lal Public School, Bareilly, under the CBSE board, where I studied Physics, Chemistry, and Mathematics (PCM) with Computer Science.",
       degree: "CBSE(XII) - PCM with Computer Science",
