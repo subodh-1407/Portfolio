@@ -120,7 +120,7 @@ export const SkillsInfo = [
       img: newtonschoolLogo,
       role: "Backend Developer (MERN Stack)",
       company: "ISOURSE Technologies Pvt Ltd",
-      date: "July 2025 - Present",
+      date: "July 2025 - September 2026",
       desc: "Building scalable backend services using Node.js and MS SQL for product-based solutions serving international clients, ensuring performance, reliability, and security across deployments. Collaborating with cross-functional teams to design RESTful APIs, integrate databases, and optimize server-side logic tailored to diverse business needs.",
       skills: [
         "Javascript",
