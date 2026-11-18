@@ -54,8 +54,7 @@ const Contact = () => {
 
       <div className="grid grid-cols-1 items-center justify-items-center gap-8 md:grid-cols-2 md:justify-items-stretch md:gap-12">
         <div className="text-center md:text-left">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#f0f5ff]">CONTACT</h2>
-          <div className="w-32 h-1 bg-[#7dd3fc] mx-auto md:mx-0 mt-4"></div>
+          <h2 className="inline-block text-3xl sm:text-4xl font-bold text-[#f0f5ff] after:mt-4 after:block after:h-1 after:w-full after:bg-[#7dd3fc]">CONTACT</h2>
           <p className="text-[#a9b9d0] mt-4 text-lg font-semibold">
             I&rsquo;d love to hear from you&mdash;reach out for any opportunities or questions!
           </p>

@@ -29,7 +29,7 @@ import csharpLogo from './assets/tech_logo/csharp.png';
 
 // Experience Section Logo's
 import webverseLogo from './assets/company_logo/webverse_logo.png';
-import newtonschoolLogo from './assets/company_logo/newtonschool_logo.png';
+import isourseLogo from './assets/company_logo/isourse_logo.png';
 
 // Education Section Logo's
 import glaLogo from './assets/education_logo/gla_logo.png';
@@ -106,7 +106,8 @@ export const SkillsInfo = [
 
         {
       id: 0,
-      img: newtonschoolLogo,
+      img: isourseLogo,
+      logoBackground: "#182140",
       role: "Backend Developer (MERN Stack)",
       company: "ISOURSE Technologies Pvt Ltd",
       date: "July 2025 - September 2026",

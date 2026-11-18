@@ -36,11 +36,14 @@ const Experience = () => {
               {/* Flex container for image and text */}
               <div className="flex items-center gap-3 sm:gap-6">
                 {/* Company Logo/Image */}
-                <div className="w-12 h-12 shrink-0 sm:w-16 sm:h-16 bg-white rounded-md overflow-hidden">
+                <div
+                  className="w-12 h-12 shrink-0 sm:w-16 sm:h-16 bg-white rounded-md overflow-hidden"
+                  style={{ backgroundColor: experience.logoBackground }}
+                >
                   <img
                     src={experience.img}
                     alt={experience.company}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
 
