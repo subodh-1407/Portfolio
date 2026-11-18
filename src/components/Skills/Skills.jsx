@@ -8,8 +8,7 @@ const Skills = () => (
   >
     {/* Section Title */}
     <div className="text-center mb-8">
-      <h2 className="text-3xl sm:text-3xl sm:text-4xl font-bold text-[#f0f5ff]">SKILLS</h2>
-      <div className="w-24 h-1 bg-[#7dd3fc] mx-auto mt-2"></div>
+      <h2 className="section-title text-3xl sm:text-4xl font-bold text-[#f0f5ff]">SKILLS</h2>
       <p className="text-[#a9b9d0] mt-4 text-lg font-semibold">
       A collection of my technical skills and expertise honed through various projects and experiences
       </p>

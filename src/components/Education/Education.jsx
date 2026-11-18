@@ -8,8 +8,7 @@ const Education = () => {
     >
       {/* Section Title */}
       <div className="text-center mb-16">
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#f0f5ff]">EDUCATION</h2>
-        <div className="w-32 h-1 bg-[#7dd3fc] mx-auto mt-4"></div>
+        <h2 className="section-title text-3xl sm:text-4xl font-bold text-[#f0f5ff]">EDUCATION</h2>
         <p className="text-[#a9b9d0] mt-4 text-lg font-semibold">
           My education has been a journey of learning and development. Here are the details of my academic background
         </p>

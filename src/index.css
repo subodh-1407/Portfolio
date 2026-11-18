@@ -37,6 +37,14 @@ html {
 }
 
 section { scroll-margin-top: 5rem; }
+.section-title { display: inline-block; }
+.section-title::after {
+  content: "";
+  display: block;
+  height: .25rem;
+  margin-top: .75rem;
+  background: #7dd3fc;
+}
 .portfolio-background {
   background: radial-gradient(ellipse at 72% 0%, #152238, transparent 70%) top center / 100% 44rem no-repeat #0b1220;
 }
