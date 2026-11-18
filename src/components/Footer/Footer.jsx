@@ -1,68 +1,25 @@
-import React from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub, FaYoutube } from "react-icons/fa";
+﻿import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FiArrowUp } from "react-icons/fi";
 
-const Footer = () => {
-  // Smooth scroll function
-  const handleScroll = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+const socials = [
+  ["GitHub", FaGithub, "https://github.com/subodh-1407"],
+  ["LinkedIn", FaLinkedin, "https://www.linkedin.com/in/subodh-gangwar-b33b05165/"],
+  ["Instagram", FaInstagram, "https://www.instagram.com/subodh_gangwar_/"],
+  ["Facebook", FaFacebook, "https://www.facebook.com/gangwar14subodh"],
+];
 
+export default function Footer() {
   return (
-    <footer className="text-white py-8 px-[12vw] md:px-[7vw] lg:px-[20vw]">
-      <div className="container mx-auto text-center">
-        {/* Name / Logo */}
-        <h2 className="text-xl font-semibold text-purple-500">Subodh Gangwar</h2>
-
-        {/* Navigation Links - Responsive */}
-        <nav className="flex flex-wrap justify-center space-x-4 sm:space-x-6 mt-4">
-          {[
-            { name: "About", id: "about" },
-            { name: "Skills", id: "skills" },
-            { name: "Experience", id: "experience" },
-            { name: "Projects", id: "projects" },
-            { name: "Education", id: "education" },
-          ].map((item, index) => (
-            <button
-              key={index}
-              onClick={() => handleScroll(item.id)}
-              className="hover:text-purple-500 text-sm sm:text-base my-1"
-            >
-              {item.name}
-            </button>
-          ))}
-        </nav>
-
-        {/* Social Media Icons - Responsive */}
-        <div className="flex flex-wrap justify-center space-x-4 mt-6">
-          {[
-            { icon: <FaGithub />, link: "https://github.com/subodh-1407" },
-            { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/subodh-gangwar-b33b05165/" },
-            { icon: <FaInstagram />, link: "https://www.instagram.com/subodh_gangwar_/" },
-            { icon: <FaFacebook />, link: "https://www.facebook.com/gangwar14subodh" },
-
-          ].map((item, index) => (
-            <a
-              key={index}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xl hover:text-purple-500 transition-transform transform hover:scale-110"
-            >
-              {item.icon}
-            </a>
+    <footer className="site-footer">
+      <div className="wrap footer-layout">
+        <p>© {new Date().getFullYear()} Subodh Gangwar</p>
+        <div className="socials">
+          {socials.map(([name, Icon, url]) => (
+            <a className="icon-button" key={name} href={url} target="_blank" rel="noopener noreferrer" aria-label={name}><Icon aria-hidden="true" /></a>
           ))}
         </div>
-
-        {/* Copyright Text */}
-        <p className="text-sm text-gray-400 mt-6">
-          © 2025 Subodh Gangwar. All rights reserved.
-        </p>
+        <a className="back-top" href="#about">Back to top <FiArrowUp aria-hidden="true" /></a>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

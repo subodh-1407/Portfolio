@@ -1,148 +1,86 @@
-import React, { useState, useEffect } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useRef, useState } from "react";
+import { FiArrowUpRight, FiMenu, FiX } from "react-icons/fi";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-const Navbar = () => {
+const menuItems = [
+  ["about", "About"],
+  ["skills", "Skills"],
+  ["experience", "Experience"],
+  ["work", "Projects"],
+  ["education", "Education"],
+];
+
+const socialLinks = [
+  ["GitHub", FaGithub, "https://github.com/subodh-1407"],
+  ["LinkedIn", FaLinkedin, "https://www.linkedin.com/in/subodh-gangwar-b33b05165/"],
+  ["Instagram", FaInstagram, "https://www.instagram.com/subodh_gangwar_/"],
+];
+
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const [isScrolled, setIsScrolled] = useState(false);
+  const menuToggle = useRef(null);
 
-  // Detect scroll and change navbar background
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Smooth scroll function
-  const handleMenuItemClick = (sectionId) => {
-    setActiveSection(sectionId);
+  function selectSection(id) {
+    setActiveSection(id);
     setIsOpen(false);
-
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const menuItems = [
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "experience", label: "Experience" },
-    { id: "work", label: "Projects" },
-    { id: "education", label: "Education" },
-  ];
+  }
 
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${
-        isScrolled ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
-    >
-      <div className="text-white py-5 flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-lg font-semibold cursor-pointer">
-          <span className="text-[#8245ec]">&lt;</span>
-          <span className="text-white"> Subodh </span>
-          <span className="text-[#8245ec]">/</span>
-          <span className="text-white"> Gangwar </span>
-          <span className="text-[#8245ec]">&gt;</span>
-        </div>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-gray-300">
-          {menuItems.map((item) => (
-            <li
-              key={item.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${
-                activeSection === item.id ? "text-[#8245ec]" : ""
-              }`}
-            >
-              <button onClick={() => handleMenuItemClick(item.id)}>
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-
-        {/* Social Icons */}
-        <div className="hidden md:flex space-x-4">
-          <a
-            href="https://github.com/subodh-1407"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
-          >
-            <FaGithub size={24} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/subodh-gangwar-b33b05165/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
-          >
-            <FaLinkedin size={24} />
-          </a>
-        </div>
-
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden">
-          {isOpen ? (
-            <FiX
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(false)}
-            />
-          ) : (
-            <FiMenu
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(true)}
-            />
-          )}
-        </div>
-      </div>
-
-      {/* Mobile Menu Items */}
-      {isOpen && (
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-50 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg md:hidden">
-          <ul className="flex flex-col items-center space-y-4 py-4 text-gray-300">
-            {menuItems.map((item) => (
-              <li
-                key={item.id}
-                className={`cursor-pointer hover:text-white ${
-                  activeSection === item.id ? "text-[#8245ec]" : ""
-                }`}
-              >
-                <button onClick={() => handleMenuItemClick(item.id)}>
-                  {item.label}
-                </button>
+    <nav aria-label="Main navigation" className="fixed inset-x-0 top-0 z-50 bg-[#0b1220] shadow-md px-[7vw] lg:px-portfolio">
+      <div className="flex h-20 items-center justify-between gap-4 text-[#f0f5ff] xl:grid xl:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
+        <a href="#about" className="brand xl:justify-self-start" onClick={() => selectSection("about")}>
+          <span className="brand-mark" aria-hidden="true">SG</span>
+          <span>Subodh Gangwar</span>
+        </a>
+        <button
+          type="button"
+          ref={menuToggle}
+          className="grid h-11 w-11 shrink-0 place-items-center text-3xl text-[#7dd3fc] xl:hidden"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+          aria-controls="portfolio-menu"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
+        </button>
+        <div
+          id="portfolio-menu"
+          className={`${isOpen ? "flex" : "hidden"} absolute inset-x-[7vw] top-full max-h-[calc(100dvh-5rem)] flex-col items-center gap-3 overflow-y-auto rounded-b-lg bg-[#0b1220] p-4 shadow-lg xl:contents`}
+          onKeyDown={(event) => {
+            if (event.key === "Escape" && isOpen) {
+              setIsOpen(false);
+              menuToggle.current.focus();
+            }
+          }}
+        >
+          <ul className="flex flex-col items-center text-[#c5d5e9] xl:flex-row xl:gap-4">
+            {menuItems.map(([id, label]) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  className={`inline-flex min-h-11 items-center hover:text-[#7dd3fc] ${activeSection === id ? "text-[#7dd3fc]" : ""}`}
+                  onClick={() => selectSection(id)}
+                >
+                  {label}
+                </a>
               </li>
             ))}
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com/subodh-1407"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
-              >
-                <FaGithub size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/subodh-gangwar-b33b05165/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
-              >
-                <FaLinkedin size={24} />
-              </a>
-            </div>
           </ul>
+          <div className="flex flex-col items-center gap-3 xl:flex-row xl:justify-self-end">
+            <div className="flex items-center">
+              {socialLinks.map(([label, Icon, url]) => (
+                <a key={label} href={url} target="_blank" rel="noopener noreferrer" aria-label={label} className="grid h-11 w-8 place-items-center text-[#c5d5e9] hover:text-[#7dd3fc]">
+                  <Icon size={22} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+            <a href="#contact" onClick={() => selectSection("contact")} className="inline-flex h-[var(--nav-badge-size)] items-center gap-1 whitespace-nowrap rounded-lg border border-[#304862] bg-[#152238] px-2 text-xs font-semibold text-[#f0f5ff] transition-colors hover:border-[#7dd3fc] hover:text-[#7dd3fc]">
+              Get in touch <FiArrowUpRight aria-hidden="true" />
+            </a>
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   );
-};
-
-export default Navbar;
+}
